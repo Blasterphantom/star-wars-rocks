@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Jedi';
+    src: url('../src/assets/star_jedi/starjedi/Starjedi.ttf') format('truetype');
+    /* Additional font properties */
+    /* font-weight, font-style, etc. */
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

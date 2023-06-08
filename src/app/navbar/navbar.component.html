@@ -1,0 +1,40 @@
+<mat-toolbar class="navbar bg-gradient-to-b from-gray-600 to-gray-900 h-16 flex justify-between" color="Primary">
+    <div>
+        <img src="../../assets/starLogo.png" class="h-12"/>
+    </div>
+
+    <div class="hidden lg:block">
+        <a routerLink="/">
+            <span class="pr-4 text-custom-yellow hover:text-blue-400">Home</span>
+        </a>
+        <a routerLink="/People">
+            <span class="pr-4 text-custom-yellow hover:text-purple-400">People</span>
+        </a>
+        <a routerLink="/Planets">
+            <span class="pr-4 text-custom-yellow hover:text-green-400">Planets</span>
+        </a>
+        <a routerLink="/Starships">
+            <span class="pr-4 text-custom-yellow hover:text-sith-red">Starships</span>
+        </a>
+    </div>
+
+    <div class="flex lg:hidden">
+        <img src="../../assets/hamburgerWhite.png" (click)="toggleDrawer()" class="h-10"/>
+    </div>
+
+</mat-toolbar>
+
+<div class="drawer w-full flex grid grid-cols-1" [ngClass]="{ 'open': isDrawerOpen }">
+    <a routerLink="/" class="p-2 bg-black border border-gray-500">
+        <span class="pr-2 text-custom-yellow hover:text-blue-400">Home</span>
+    </a>
+    <a routerLink="/People" class="p-2 bg-black border border-gray-500">
+        <span class="pr-2 text-custom-yellow hover:text-purple-400">People</span>
+    </a>
+    <a routerLink="/Planets" class="p-2 bg-black border border-gray-500">
+        <span class="pr-2 text-custom-yellow hover:text-green-400">Planets</span>
+    </a>
+    <a routerLink="/Starships" class="p-2 bg-black border border-gray-500">
+        <span class="pr-2 text-custom-yellow hover:text-sith-red">Starships</span>
+    </a> 
+</div>
