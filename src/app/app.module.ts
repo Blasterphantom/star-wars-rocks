@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
+import { MatTableModule } from '@angular/material/table';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
@@ -13,6 +15,9 @@ import { PeoplecompComponent } from './peoplecomp/peoplecomp.component';
 import { PlanetcompComponent } from './planetcomp/planetcomp.component';
 import { StarshipcompComponent } from './starshipcomp/starshipcomp.component';
 import { TableItemComponent } from './table-item/table-item.component';
+import { FormsModule } from '@angular/forms';
+import { MaterialUiTableComponent } from './material-ui-table/material-ui-table.component';
+import { MaterialUiTable2Component } from './material-ui-table2/material-ui-table2.component';
 
 @NgModule({
   declarations: [
@@ -22,14 +27,19 @@ import { TableItemComponent } from './table-item/table-item.component';
     PeoplecompComponent,
     PlanetcompComponent,
     StarshipcompComponent,
-    TableItemComponent
+    TableItemComponent,
+    MaterialUiTableComponent,
+    MaterialUiTable2Component
   ],
   imports: [
     MatToolbarModule,
     MatSidenavModule,
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

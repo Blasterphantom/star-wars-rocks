@@ -1,3 +1,17 @@
 .homeCont{
     height: calc(100vh - 64px);
 }
+
+.homeContSearch{
+    height: auto;
+    background-position:center;
+    background-attachment: fixed;
+}
+
+.scroll-container {
+    overflow: hidden;
+  }
+  
+  .scroll-container:hover {
+    overflow: auto;
+  }

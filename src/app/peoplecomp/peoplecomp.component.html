@@ -1,12 +1,15 @@
 <div class="homeCont bg-cover bg-center flex items-center flex-col" style="background-image: url(../../assets/deathStar.jpg);">
-    <div class="bg-custom-gray h-[200px] w-[300px] md:w-[600px] lg:w-[800px] rounded-xl mt-10 flex justify-center content-center flex-wrap text-4xl md:text-6xl">
-        <div class="font-custom text-custom-yellow text-center">
-            Star Wars Characters
-        </div>
+    <div (click)="fetchData()" class="bg-custom-gray h-[200px] w-[300px] md:w-[600px] lg:w-[800px] rounded-xl mt-10 flex justify-center content-center flex-wrap text-4xl md:text-6xl">
+      <div class="font-custom text-custom-yellow text-center">
+        Star Wars Characters
+      </div>
     </div>
-
-    <div>
-        
-    </div>
-
-</div>
+  
+    <div class="flex flex-col items-center w-[100%] mt-[60px]">
+        <app-table-item
+          class="flex-shrink-0"
+          *ngFor="let people of peoples"
+          [people]="people"
+        ></app-table-item>
+      </div>
+  </div>
