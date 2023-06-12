@@ -37,6 +37,7 @@
     <div class="flex flex-col justify-center items-center">
       <input
         class="mb-10 h-[50px] w-[275px] rounded-md pl-2 text-2xl"
+        [(ngModel)]="searchQuery2"
         placeholder="Search Planets"
       />
       <button
@@ -56,6 +57,7 @@
     <div class="flex flex-col justify-center items-center">
       <input
         class="mb-10 h-[50px] w-[275px] rounded-md pl-2 text-2xl"
+        [(ngModel)]="searchQuery3"
         placeholder="Search Starships"
       />
       <button
@@ -71,6 +73,10 @@
         Search
       </button>
     </div>
+  </div>
+
+  <div *ngIf="isLoading" class="spinner-overlay">
+    <div class="spinner"></div>
   </div>
 
 <div class="scroll-container mt-[5px] mb-[100px] w-[90%]" *ngIf="array.length > 0">

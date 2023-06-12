@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, Subscription, firstValueFrom } from 'rxjs';
+import { Observable, Subscription, finalize, firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-homecomp',
@@ -10,10 +10,13 @@ import { Observable, Subscription, firstValueFrom } from 'rxjs';
 export class HomecompComponent {
   homeContClass: string = 'homeCont';
   selectedComponent: string = '';
+  isLoading: boolean = false;
 
   array: any[] = [];
   subscription: Subscription | undefined;
   searchQuery: string = '';
+  searchQuery2: string = '';
+  searchQuery3: string = '';
 
   constructor(private http: HttpClient) { }
 
@@ -29,7 +32,7 @@ export class HomecompComponent {
 
   async OnPlanetSearch(): Promise<void> {
     try {
-      const data = await firstValueFrom(this.fetchData2(this.searchQuery));
+      const data = await firstValueFrom(this.fetchData2(this.searchQuery2));
       this.array = data.results;
       this.onClickChangeClass();
     } catch (error) {
@@ -39,7 +42,7 @@ export class HomecompComponent {
 
   async OnStarshipSearch(): Promise<void> {
     try {
-      const data = await firstValueFrom(this.fetchData3(this.searchQuery));
+      const data = await firstValueFrom(this.fetchData3(this.searchQuery3));
       this.array = data.results;
       this.onClickChangeClass();
     } catch (error) {
@@ -53,7 +56,12 @@ export class HomecompComponent {
 
   fetchData(searchQuery: string): Observable<any> {
     const url = 'https://swapi.dev/api/people/?search=' + searchQuery;
-    return this.http.get<any>(url);
+    this.isLoading = true; 
+    return this.http.get<any>(url).pipe(
+      finalize(() => {
+        this.isLoading = false; // Set isLoading to false after the request completes (success or error)
+      })
+    );
   }
 
   fetchData2(searchQuery: string): Observable<any> {

@@ -73,4 +73,9 @@ export class PeoplecompComponent implements AfterViewInit {
     const url = 'https://swapi.dev/api/people/?search=' + searchQuery;
     return this.http.get<any>(url);
   }
+
+  fetchOnClick(url: string): Observable<any> {
+    const urlpicked = url
+    return this.http.get<any>(urlpicked);
+  }
 }
