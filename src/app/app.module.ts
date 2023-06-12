@@ -18,6 +18,7 @@ import { TableItemComponent } from './table-item/table-item.component';
 import { FormsModule } from '@angular/forms';
 import { MaterialUiTableComponent } from './material-ui-table/material-ui-table.component';
 import { MaterialUiTable2Component } from './material-ui-table2/material-ui-table2.component';
+import { MaterialUiTable3Component } from './material-ui-table3/material-ui-table3.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { MaterialUiTable2Component } from './material-ui-table2/material-ui-tabl
     StarshipcompComponent,
     TableItemComponent,
     MaterialUiTableComponent,
-    MaterialUiTable2Component
+    MaterialUiTable2Component,
+    MaterialUiTable3Component
   ],
   imports: [
     MatToolbarModule,

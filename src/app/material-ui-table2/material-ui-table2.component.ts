@@ -6,6 +6,6 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./material-ui-table2.component.css']
 })
 export class MaterialUiTable2Component {
-  // @Input() array2: any[] = [];
-  // displayedColumns: string[] = ['name', 'rotation_period', 'orbital_period', 'diameter', 'climate', 'gravity', 'terrain', 'surface_water', 'population', 'residents', 'films', 'created', 'edited', 'url'];
+  @Input() array2: any[] = [];
+  displayedColumns2: string[] = ['name', 'rotation_period', 'orbital_period', 'diameter', 'climate', 'gravity', 'terrain', 'surface_water', 'population', 'residents', 'films', 'created', 'edited', 'url'];
 }

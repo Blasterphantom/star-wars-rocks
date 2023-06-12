@@ -28,6 +28,7 @@
             5px 5px 0 red;
         "
         (click)="OnPeopleSearch()"
+        (click)="selectedComponent = 'table1'"
       >
         Search
       </button>
@@ -45,6 +46,8 @@
           text-shadow: -5px -5px 0 black, 5px -5px 0 black, 5px 5px 0 red,
             5px 5px 0 red;
         "
+        (click)="OnPlanetSearch()"
+        (click)="selectedComponent = 'table2'"
       >
         Search
       </button>
@@ -62,6 +65,8 @@
           text-shadow: -5px -5px 0 black, 5px -5px 0 black, 5px 5px 0 red,
             5px 5px 0 red;
         "
+        (click)="OnStarshipSearch()"
+        (click)="selectedComponent = 'table3'"
       >
         Search
       </button>
@@ -69,6 +74,10 @@
   </div>
 
 <div class="scroll-container mt-[5px] mb-[100px] w-[90%]" *ngIf="array.length > 0">
-  <app-material-ui-table [array]="array"></app-material-ui-table>
+  <ng-container [ngSwitch]="selectedComponent">
+    <app-material-ui-table *ngSwitchCase="'table1'" [array]="array"></app-material-ui-table>
+    <app-material-ui-table2 *ngSwitchCase="'table2'" [array2]="array"></app-material-ui-table2>
+    <app-material-ui-table3 *ngSwitchCase="'table3'" [array3]="array"></app-material-ui-table3>
+  </ng-container>
 </div>
 </div>

@@ -9,6 +9,7 @@ import { Observable, Subscription, firstValueFrom } from 'rxjs';
 })
 export class HomecompComponent {
   homeContClass: string = 'homeCont';
+  selectedComponent: string = '';
 
   array: any[] = [];
   subscription: Subscription | undefined;
@@ -26,12 +27,42 @@ export class HomecompComponent {
     }
   }
 
+  async OnPlanetSearch(): Promise<void> {
+    try {
+      const data = await firstValueFrom(this.fetchData2(this.searchQuery));
+      this.array = data.results;
+      this.onClickChangeClass();
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async OnStarshipSearch(): Promise<void> {
+    try {
+      const data = await firstValueFrom(this.fetchData3(this.searchQuery));
+      this.array = data.results;
+      this.onClickChangeClass();
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   onClickChangeClass(): void {
     this.homeContClass = 'homeContSearch';
   }
 
   fetchData(searchQuery: string): Observable<any> {
     const url = 'https://swapi.dev/api/people/?search=' + searchQuery;
+    return this.http.get<any>(url);
+  }
+
+  fetchData2(searchQuery: string): Observable<any> {
+    const url = 'https://swapi.dev/api/planets/?search=' + searchQuery;
+    return this.http.get<any>(url);
+  }
+
+  fetchData3(searchQuery: string): Observable<any> {
+    const url = 'https://swapi.dev/api/starships/?search=' + searchQuery;
     return this.http.get<any>(url);
   }
 }
